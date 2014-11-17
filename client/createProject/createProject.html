@@ -1,0 +1,60 @@
+<template name="createProject">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Create new project</h2>
+                <hr>
+                <form id="createProjectForm" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="projectName" class="col-sm-2 control-label">Project name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="projectName" placeholder="Project X">
+                        </div>
+                    </div>
+                    {{#if releases}}
+                    <div class="form-group">
+                        <label for="projectName" class="col-sm-2 control-label">Releases</label>
+                        <div class="col-sm-10">
+                            {{#each releases}}
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Release
+                                        <span class="pull-right">
+                                            <button type="button" class="btn btn-xs btn-danger deleteReleaseBtn" data-release-id="{{_id}}">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <label for="">Release Date</label>
+                                                <input type="date" class="form-control" value="{{releaseDate.toString}}">
+                                            </li>
+                                            <li class="list-group-item">
+                                                <label for="">Live Date</label>
+                                                <input type="date" class="form-control" value="{{liveDate}}">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-primary" id="addReleaseBtn">Add release dates</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Make</button>
+                            <button type="button" class="btn btn-danger" id="deleteCurrentProject">Nevermind</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- /container -->
+</template>

@@ -1,0 +1,35 @@
+<template name="home">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                {{#each projects}}
+                    {{> projectRow}}
+                {{/each}}
+            </table>
+        </div>
+    </div> <!-- /container -->
+</template>
+
+<template name="projectRow">
+    <tr>
+        {{#if finishedCreating}}
+            <td>
+                {{name}}
+            </td>
+            <td>
+                Vorige release: {{previousRelease}}
+            </td>
+            <td>
+                Volgende release: {{nextRelease}}
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info editProject" data-project-id="{{_id}}"><i class="fa fa-pencil"></i> </button>
+                <button type="button" class="btn btn-sm btn-danger removeProject" data-project-id="{{_id}}"><i class="fa fa-trash"></i> </button>
+            </td>
+        {{else}}
+            <td colspan="4">
+                {{name}}
+            </td>
+        {{/if}}
+    </tr>
+</template>

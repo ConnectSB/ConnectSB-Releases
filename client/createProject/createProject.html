@@ -16,7 +16,7 @@
                         <label for="projectName" class="col-sm-2 control-label">Releases</label>
                         <div class="col-sm-10">
                             {{#each releases}}
-                                <div class="panel panel-default">
+                                <div class="panel panel-default createReleaseWindow" data-release-id="{{_id}}">
                                     <div class="panel-heading">
                                         Release
                                         <span class="pull-right">
@@ -29,11 +29,15 @@
                                         <ul class="list-group">
                                             <li class="list-group-item">
                                                 <label for="">Release Date</label>
-                                                <input type="date" class="form-control" value="{{releaseDate.toString}}">
+                                                <input type="date" class="form-control releaseDate" value="{{releaseDate}}">
                                             </li>
                                             <li class="list-group-item">
                                                 <label for="">Live Date</label>
-                                                <input type="date" class="form-control" value="{{liveDate}}">
+                                                <input type="date" class="form-control liveDate" value="{{liveDate}}">
+                                            </li>
+                                            <li class="list-group-item">
+                                                <label for="">Beschrijving</label>
+                                                <input type="text" class="form-control description" value={{description}}>
                                             </li>
                                         </ul>
                                     </div>

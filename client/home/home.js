@@ -1,7 +1,7 @@
 /**
  * Created by jimmy on 13-11-14.
  */
-Template.home.rendered = function() {
+ Template.home.rendered = function() {
     Session.set('currentActiveLi', 'home');
 };
 
@@ -28,5 +28,11 @@ Template.home.events({
         Router.go('editProject', {
             id: projectId
         });
+    }
+});
+
+Template.projectRow.helpers({
+    releases: function(project) {
+        return Releases.find({projectId: project._id});
     }
 });

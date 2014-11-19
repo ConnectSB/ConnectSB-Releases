@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 mizzao:bootstrap-3
 linto:fontawesome
 iron:router
@@ -13,4 +11,3 @@ chrismbeckett:toastr
 aldeed:autoform
 aldeed:simple-schema
 aldeed:collection2
-

@@ -2,8 +2,12 @@
     <div class="container">
         <div class="table-responsive">
             <table class="table table-striped table-hover">
-                {{#each projects}}
-                    {{> projectRow}}
+                <tr>
+                    <th>Project Naam</th>
+                    <th>Releases</th>
+                </tr>
+                {{#each this}}
+                {{> projectRow}}
                 {{/each}}
             </table>
         </div>
@@ -12,24 +16,36 @@
 
 <template name="projectRow">
     <tr>
-        {{#if finishedCreating}}
-            <td>
-                {{name}}
-            </td>
-            <td>
-                Vorige release: {{previousRelease}}
-            </td>
-            <td>
-                Volgende release: {{nextRelease}}
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info editProject" data-project-id="{{_id}}"><i class="fa fa-pencil"></i> </button>
-                <button type="button" class="btn btn-sm btn-danger removeProject" data-project-id="{{_id}}"><i class="fa fa-trash"></i> </button>
-            </td>
-        {{else}}
-            <td colspan="4">
-                {{name}}
-            </td>
-        {{/if}}
+        <td>
+            {{name}}
+        </td>
+        <td>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Beschrijving / versie</th>
+                        <th>Opleveringsdatum</th>
+                        <th>Datum live-gang</th>
+                    </tr>
+                    {{#each releases this}}
+                    <tr>
+                        <td>
+                        {{description}}
+                        </td>
+                        <td>
+                            {{releaseDate}}
+                        </td>
+                        <td>
+                            {{liveDate}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </td>
+        <td>
+            <button type="button" class="btn btn-sm btn-info editProject" data-project-id="{{_id}}"><i class="fa fa-pencil"></i> </button>
+            <button type="button" class="btn btn-sm btn-danger removeProject" data-project-id="{{_id}}"><i class="fa fa-trash"></i> </button>
+        </td>
     </tr>
 </template>

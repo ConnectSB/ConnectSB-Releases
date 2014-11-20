@@ -1,5 +1,5 @@
 Meteor.publish('projects', function() {
-	return Projects.find({});
+	return Projects.find({}, {sort: {'name': 1}});
 });
 
 Meteor.publish('projectForId', function(id) {

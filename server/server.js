@@ -77,5 +77,4 @@ Meteor.startup(function () {
             Themes.insert(theme);
         });
     }
-    // code to run on server at startup
 });

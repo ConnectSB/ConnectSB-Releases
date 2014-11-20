@@ -1,3 +1,11 @@
+# v1.1.0 Thor
+Small changes to existing functionality.
+
+- List of projects now sorted by the name in ascending order
+
+***
+
+
 # v1.0.0 Odin
 First version of the ConnectSB Releases application.
 
